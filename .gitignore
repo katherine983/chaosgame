@@ -1,3 +1,5 @@
 *.bib
 badRNG.pdf
 LinearCongruentialGenerators.pdf
+plot_animation_tutorial/.ipynb_checkpoints/basic_plot_animation_blank-checkpoint.ipynb
+plot_animation_tutorial/.ipynb_checkpoints/chaos_game_demo-checkpoint.ipynb
