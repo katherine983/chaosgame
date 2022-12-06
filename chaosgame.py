@@ -1,18 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-get_ipython().run_line_magic('matplotlib', 'notebook')
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-from IPython.display import HTML
-
-
-# In[47]:
-
 
 def LCG(seed=1):
     x = seed
@@ -50,12 +41,6 @@ def LCG(seed=1):
     gen.get_seed = get_seed
     gen.ints = integers
     return gen
-rng = LCG(seed=2653589793)
-rng()
-
-
-# In[46]:
-
 
 def RANDU(seed=1):
     x = seed
@@ -79,14 +64,10 @@ def RANDU(seed=1):
     gen.get_seed = get_seed
     gen.ints = integers
     return gen
-rng = RANDU(seed=2653589793)
-rng()
-
-
-# In[55]:
 
 
 def PASCAL(seed=1):
+    #implements pseudorandom number generating algorithm utilized in PASCAL 
     x = seed
     def get_seed():
         return seed
@@ -110,26 +91,10 @@ def PASCAL(seed=1):
     gen.get_seed = get_seed
     gen.ints = integers
     return gen
-rng = PASCAL(seed=2653589793)
-rng()
-
-
-# In[ ]:
-
-
-np.array(rng.ints(0, 4, 20))
-
-
-# In[ ]:
-
-
-205800 % 6
-
-
-# In[3]:
 
 
 def ngon_coords(verts):
+    # copies functionality of pyusm.ngon_coords()
     radians=[]
     for k in range(verts):
         rad = (2*np.pi*k)/verts
@@ -138,8 +103,6 @@ def ngon_coords(verts):
     y_vals =np.sin(radians)
     return x_vals, y_vals
 
-
-# In[56]:
 
 
 class chaos_game:
@@ -213,61 +176,16 @@ class chaos_game:
         x, y = zip(*rows)
         self.ax.scatter(x, y, s=1, c='g')
 
-    def animate(self, chunks=10):
+    def animate(self, chunks=10, kwargs**):
+        repeat = kwargs.get(repeat, True)
+        interval = kwargs.get(interval, 0.5)
+        blit = kwargs.get(blit, True)
         self.chunks = chunks
         self.frame_chunks = self.points // self.chunks
-        self.ani = FuncAnimation(self.fig, self.animation, frames=self.frame_chunks, init_func=self.init_frame, interval=0.5, repeat=True, blit=True)
+        self.ani = FuncAnimation(self.fig, self.animation, frames=self.frame_chunks, init_func=self.init_frame, interval=interval, repeat=repeat, blit=blit)
         movie1 = self.ani.to_jshtml()
         return movie1
     def pause(self):
         self.ani.pause()
         return
-
-
-# In[61]:
-
-
-cgLCG = chaos_game(4, 10000, RNG='LCG')
-cgLCG.plot()
-
-
-# In[53]:
-
-
-cgRANDU = chaos_game(4, 10000, RNG='RANDU')
-cgRANDU.plot()
-
-
-# In[60]:
-
-
-cgPASCAL = chaos_game(8, 10000, RNG='PASCAL')
-cgPASCAL.plot()
-
-
-# In[14]:
-
-
-cgMT = chaos_game(5, 10000, RNG='Mersenne')
-cgMT.plot()
-
-
-# In[ ]:
-
-
-
-
-
-# In[13]:
-
-
-cg = chaos_game(5, 10000)
-cg.plot()
-
-
-# In[ ]:
-
-
-mv = cg.animate()
-HTML(mv)
 
