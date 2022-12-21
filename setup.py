@@ -32,7 +32,7 @@ setup(
     license="MIT license",
     long_description=readme + '\n\n' + history,
     include_package_data=True,
-    keywords=['chaosgame', 'chaos game', 'iterated function system', 'barnsley fern']
+    keywords=['chaosgame', 'chaos game', 'iterated function system', 'barnsley fern'],
     name='chaosgame',
     packages=find_packages(include=['chaosgame.py']),
     url='https://github.com/katherine983/chaosgame',

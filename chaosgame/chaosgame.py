@@ -105,8 +105,10 @@ def ngon_coords(verts):
 
 
 
-class chaos_game:
+class ChaosGame:
     def __init__(self, verts, points, RNG='default_rng'):
+        # verts is integer number of vertices for chaos game
+        # points is integer number of points to plot in chaos game
         #self.fig = fig
         #self.ax = ax
         self.verts = verts
@@ -176,13 +178,16 @@ class chaos_game:
         x, y = zip(*rows)
         self.ax.scatter(x, y, s=1, c='g')
 
-    def animate(self, chunks=10, kwargs**):
+    def animate(self, chunks=10, **kwargs):
         repeat = kwargs.get(repeat, True)
         interval = kwargs.get(interval, 0.5)
         blit = kwargs.get(blit, True)
         self.chunks = chunks
         self.frame_chunks = self.points // self.chunks
         self.ani = FuncAnimation(self.fig, self.animation, frames=self.frame_chunks, init_func=self.init_frame, interval=interval, repeat=repeat, blit=blit)
+        plt.show()
+
+    def movie(self):
         movie1 = self.ani.to_jshtml()
         return movie1
     def pause(self):
