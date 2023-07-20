@@ -5,3 +5,4 @@ plot_animation_tutorial/.ipynb_checkpoints/basic_plot_animation_blank-checkpoint
 plot_animation_tutorial/.ipynb_checkpoints/chaos_game_demo-checkpoint.ipynb
 chaosgame/__pycache__/chaosgame.cpython-39.pyc
 *.egg-info*
+doc/.ipynb_checkpoints/*
