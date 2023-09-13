@@ -6,3 +6,6 @@ plot_animation_tutorial/.ipynb_checkpoints/chaos_game_demo-checkpoint.ipynb
 chaosgame/__pycache__/chaosgame.cpython-39.pyc
 *.egg-info*
 doc/.ipynb_checkpoints/*
+doc/randints4pyusm.txt
+doc/sierpinski_cgr_fast.gif
+doc/sierpinski_cgr_slow.gif
